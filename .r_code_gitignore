@@ -37,8 +37,4 @@ summary(first_reg)
 second_reg <- lm(price ~ mileage + year + title_status, data = used_cars_arranged)
 summary(second_reg)
 
-ggplot(data = used_cars_arranged) +
-  geom_point(mapping = aes(x=state, y=price, color=title_status)) +
-  geom_smooth(mapping = aes(x=state, y=price, color=title_status))
-
 ### end of file ###
