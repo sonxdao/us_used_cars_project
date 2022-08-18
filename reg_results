@@ -1,0 +1,42 @@
+first_reg <- lm(price ~ mileage, data = used_cars_arranged)
+summary(first_reg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-23022  -7572  -2270   5526  63936 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  2.302e+04  2.953e+02   77.97   <2e-16 ***
+mileage     -8.134e-02  3.721e-03  -21.86   <2e-16 ***
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 11100 on 2497 degrees of freedom
+Multiple R-squared:  0.1607,	Adjusted R-squared:  0.1603 
+F-statistic:   478 on 1 and 2497 DF,  p-value: < 2.2e-16
+
+###
+###
+###
+
+second_reg <- lm(price ~ mileage + year + title_status, data = used_cars_arranged)
+summary(second_reg)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-20865  -7270  -1911   5269  64299 
+
+Coefficients:
+                                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                   -1.498e+06  1.678e+05  -8.928  < 2e-16 ***
+mileage                       -4.177e-02  4.519e-03  -9.243  < 2e-16 ***
+year                           7.534e+02  8.313e+01   9.064  < 2e-16 ***
+title_statussalvage insurance -7.525e+03  1.038e+03  -7.249 5.58e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 10660 on 2495 degrees of freedom
+Multiple R-squared:  0.227,	Adjusted R-squared:  0.2261 
+F-statistic: 244.3 on 3 and 2495 DF,  p-value: < 2.2e-16
