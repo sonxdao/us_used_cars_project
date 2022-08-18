@@ -17,6 +17,10 @@ Residual standard error: 11100 on 2497 degrees of freedom
 Multiple R-squared:  0.1607,	Adjusted R-squared:  0.1603 
 F-statistic:   478 on 1 and 2497 DF,  p-value: < 2.2e-16
 
+Interpretation: in this model, we are using only one explanatory variable, mileage. Hence, the equation does not explain very much of
+the used car prices, which is reflected in the low R-squared value. The estimated coefficient is telling us prices decrease by 0.08134 dollar
+for every increase in mileage, and prices are predicted to be at 23020 dollars when mileage is zero.
+
 ###
 ###
 ###
@@ -40,3 +44,16 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Residual standard error: 10660 on 2495 degrees of freedom
 Multiple R-squared:  0.227,	Adjusted R-squared:  0.2261 
 F-statistic: 244.3 on 3 and 2495 DF,  p-value: < 2.2e-16
+
+Interpretation: in this model, we have mileage, year, and title status as independent variables to explain the used car prices. 
+The R-squared values in this regression has increased due to more explanatory variables. The p-value for this regression remains small.
+The estimated coefficient is telling us prices decrease by 0.04177 dollar for every increase in mileage, prices increase by 753.4 dollars 
+for every increase in year, prices decrease by 7525 dollars for vehicles with salvage titles, and prices are predicted to be at 1498000 dollars
+when all three variables mileage, year, and title status are zero. In other words, higher mileage cars and/or those with salvage titles have 
+lower prices, newer used cars tend to have higher prices, and cars that are just made this current year with no mileage on the clock
+and no salvage titles have really high prices. 
+
+
+
+
+
