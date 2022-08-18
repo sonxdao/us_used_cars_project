@@ -1,39 +1,42 @@
-# History files
-.Rhistory
-.Rapp.history
+library(tidyverse)
+library(readr)
+library(here)
+library(skimr)
+library(janitor)
+library(dplyr)
+library(ggplot2)
+library(stats)
 
-# Session Data files
-.RData
+# importing and examining data
+used_cars <- read_csv('C:/Users/dxson/Downloads/r_files/us_cars.csv')
+head(used_cars)
+glimpse(used_cars)
+colnames(used_cars)
 
-# User-specific files
-.Ruserdata
+# sorting data by brand, model, year, and mileage in ascending order)
+used_cars_arranged <- arrange(used_cars, brand, model, year, mileage)
 
-# Example code in package build process
-*-Ex.R
+used_cars_arranged %>%
+  summarize(mean(price),sd(price),mean(mileage),sd(mileage),cor(price,mileage,))
 
-# Output files from R CMD build
-/*.tar.gz
+head(used_cars_arranged)
+glimpse(used_cars_arranged)
+colnames(used_cars_arranged)
 
-# Output files from R CMD check
-/*.Rcheck/
+# Plotting relationship between mileage and price for different title statuses
+ggplot(data = used_cars_arranged) +
+  geom_point(mapping = aes(x=mileage, y=price, color=title_status)) +
+  geom_smooth(mapping = aes(x=mileage, y=price, color=title_status))
 
-# RStudio files
-.Rproj.user/
+# regressing price on mileage and other variables using OLS
+first_reg <- lm(price ~ mileage, data = used_cars_arranged)
+summary(first_reg)
 
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
+second_reg <- lm(price ~ mileage + year + title_status, data = used_cars_arranged)
+summary(second_reg)
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
+ggplot(data = used_cars_arranged) +
+  geom_point(mapping = aes(x=state, y=price)) +
+  geom_smooth(mapping = aes(x=state, y=price, color=title_status))
 
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
+### end of file ###
